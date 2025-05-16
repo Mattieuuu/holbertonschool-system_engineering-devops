@@ -1,0 +1,64 @@
+User -> Internet -> DNS -> Server (8.8.8.8)
+                                |
+                          [ NGINX (Web Server) ]
+                                |
+                    [ Application Server (App Code) ]
+                                |
+                          [ MySQL Database ]
+
+Infrastructure Explanation:
+
+1. User Access Flow:
+- User types www.foobar.com in their browser
+- DNS resolution translates www.foobar.com to IP 8.8.8.8
+- Request reaches the server through HTTP/HTTPS protocol
+
+2. Server (8.8.8.8):
+- Physical or virtual computer that hosts all components
+- Runs Linux operating system
+- Single point where all services are hosted
+
+3. Domain Name (foobar.com):
+- Human-readable address for accessing the website
+- www record is an A record in DNS
+- Points to server IP 8.8.8.8
+
+4. Web Server (Nginx):
+- Handles HTTP requests
+- Serves static content
+- Manages SSL/TLS termination
+- Routes requests to application server
+
+5. Application Server:
+- Executes application code
+- Processes dynamic content
+- Handles business logic
+- Communicates with database
+
+6. Database (MySQL):
+- Stores website data
+- Manages user information
+- Handles data persistence
+- Processes data queries
+
+7. Communication Protocol:
+- HTTP/HTTPS protocol between user and server
+- TCP/IP for network communication
+
+Infrastructure Issues:
+
+1. SPOF (Single Point of Failure):
+- Single server hosts everything
+- No redundancy
+- Hardware failure = complete outage
+
+2. Maintenance Issues:
+- Updates require downtime
+- No redundant server for failover
+- Service restart = temporary outage
+
+3. Scaling Limitations:
+- No load balancing
+- Limited by single server resources
+- Cannot handle high traffic loads
+- Vertical scaling only option

@@ -1,0 +1,67 @@
+# Scaled Up Web Infrastructure
+
+https://imgur.com/a/KQQ8WIp
+
+                [ Load Balancer Cluster ]
+                [ HAproxy 1 | HAproxy 2 ]
+                    /        |        \
+                   /         |         \
+[ Server 1 ]    [ Server 2 ]    [ Server 3 ]    [ Server 4 ]
+Web Server     App Server      Database       Additional Server
+- Nginx        - Application   - MySQL        - Redundancy
+- Static       - Codebase     - Data Store   - Failover
+  Content      - Dynamic                      - Scaling
+                 Processing
+
+Infrastructure Components:
+
+1. Load Balancer Cluster:
+- HAproxy in active-active configuration
+- Distributed traffic handling
+- High availability and redundancy
+- Automatic failover capability
+
+2. Dedicated Web Server:
+- Nginx for static content
+- SSL termination
+- Request routing
+- Caching layer
+
+3. Application Server:
+- Isolated application processing
+- Business logic handling
+- Resource optimization
+- Dedicated processing power
+
+4. Database Server:
+- Dedicated MySQL instance
+- Optimized for data operations
+- Independent scaling
+- Resource isolation
+
+5. Additional Server Benefits:
+- Component isolation
+- Independent scaling
+- Resource optimization
+- Improved maintenance
+- Better security control
+
+Component Distribution Benefits:
+
+1. Performance:
+- Dedicated resources per component
+- Optimized configurations
+- Reduced resource competition
+- Better monitoring control
+
+2. Maintenance:
+- Independent updates
+- Reduced downtime
+- Component-specific scaling
+- Easier troubleshooting
+
+3. Security:
+- Isolated components
+- Specific security policies
+- Reduced attack surface
+- Better access control

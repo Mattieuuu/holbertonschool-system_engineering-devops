@@ -1,0 +1,64 @@
+# Scaled Up Web Infrastructure
+
+https://imgur.com/a/89ocMzm
+
+                        [ Load Balancer (HAproxy) ]
+                           /                \
+                          /                  \
+        [ Server 1 (8.8.8.8) ]      [ Server 2 (8.8.8.9) ]
+        - Nginx                      - Nginx
+        - Application Server         - Application Server
+        - Codebase                  - Codebase
+        - MySQL (Primary)           - MySQL (Replica)
+
+Infrastructure Details:
+
+1. Load Balancer (HAproxy):
+- Distribution algorithm: Round Robin
+- Alternates requests between servers
+- Active-Active setup enabled
+- Ensures high availability and load distribution
+
+2. Server Configuration:
+Server 1 (Primary):
+- Nginx web server
+- Application server
+- Application codebase
+- MySQL Primary database
+
+Server 2 (Replica):
+- Nginx web server
+- Application server
+- Application codebase
+- MySQL Replica database
+
+3. Load Balancer Setup:
+- Active-Active: Both servers handle traffic simultaneously
+- Differs from Active-Passive where one server is on standby
+- Round Robin algorithm distributes requests evenly
+
+4. Database Configuration:
+Primary-Replica Relationship:
+- Primary: Handles write operations
+- Replica: Handles read operations
+- Asynchronous replication from Primary to Replica
+- Improved read performance and redundancy
+
+Infrastructure Issues:
+
+1. SPOFs:
+- Load balancer is a single point of failure
+- No redundancy for load balancer
+- Single Primary database
+
+2. Security Issues:
+- No firewall protection
+- No HTTPS encryption
+- Exposed ports and services
+- No network segmentation
+
+3. Monitoring Limitations:
+- No monitoring system in place
+- No performance metrics
+- No error tracking
+- No uptime monitoring

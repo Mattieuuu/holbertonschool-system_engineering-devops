@@ -1,3 +1,7 @@
+# Scaled Up Web Infrastructure
+
+https://imgur.com/a/OINBFBm
+
 User -> Internet -> DNS -> Server (8.8.8.8)
                                 |
                           [ NGINX (Web Server) ]

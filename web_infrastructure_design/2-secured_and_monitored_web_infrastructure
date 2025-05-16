@@ -1,0 +1,65 @@
+# Scaled Up Web Infrastructure
+
+https://imgur.com/a/abmupAK
+
+                   [ SSL Certificate ]
+                           |
+                   [ Load Balancer ]
+                   [ Firewall 1    ]
+                    /            \
+                   /              \
+[ Firewall 2 ]                    [ Firewall 3 ]
+[ Server 1   ]                    [ Server 2   ]
+- Nginx                           - Nginx
+- Application Server              - Application Server
+- Codebase                       - Codebase
+- MySQL (Primary)                - MySQL (Replica)
+- Monitoring Client              - Monitoring Client
+                   [ Monitoring Service ]
+                   (Sumologic/Datadog)
+
+Infrastructure Components:
+
+1. Security Elements:
+- 3 Firewalls: Network security, traffic filtering
+- SSL Certificate: HTTPS encryption
+- Secure protocols and ports only
+
+2. Server Configuration:
+Each Server Contains:
+- Nginx web server with SSL termination
+- Application server
+- Database (Primary/Replica)
+- Monitoring client
+- Firewall protection
+
+3. Monitoring Setup:
+- 3 Monitoring clients (one per server)
+- Data collection: metrics, logs, performance
+- QPS monitoring via Nginx logs
+- Resource utilization tracking
+- Alert system for anomalies
+
+4. HTTPS Implementation:
+- SSL/TLS encryption
+- Secure data transmission
+- Certificate validation
+- End-to-end security
+
+Infrastructure Issues:
+
+1. SSL Termination Issues:
+- Terminating at load balancer exposes internal traffic
+- Need for end-to-end encryption
+- Additional SSL overhead
+
+2. Database Limitations:
+- Single write point (Primary)
+- Replication lag
+- No write failover
+
+3. Uniformity Problems:
+- All servers have same components
+- Resource competition
+- No component isolation
+- Difficult maintenance
